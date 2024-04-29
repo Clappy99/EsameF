@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-end">
+            <a class="btn btn-primary mb-2" (click)="create()">Crea</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="table-dark">
+                 <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Actions</th>
+                 </tr>
+                </thead>
+                <tbody>
+                <ng-container *ngIf="items?.length > 0;else no_items">
+                  <tr *ngFor="let item of items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.category}}</td>
+                    <td><span><a class="btn btn-link mx-1" [href]="'/books/edit/'+item.id">Edit</a></span> <span><a class="btn btn-link" (click)="delete(item.id)">Delete</a></span></td>
+                    </tr>
+                </ng-container>
+                <ng-template #no_items>
+                    <tr class="text-center"><td colspan="12">Non ci sono elementi</td></tr>
+                </ng-template>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

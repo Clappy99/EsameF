@@ -1,0 +1,6 @@
+@Traccia1.Web_HostAddress = http://localhost:5258
+
+GET {{Traccia1.Web_HostAddress}}/api/Test/
+Accept: application/json
+
+###
